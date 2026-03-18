@@ -1,0 +1,284 @@
+{
+  "base_url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query",
+  "districts_total": 30,
+  "district_results": [
+    {
+      "district_slug": "alum_rock_union_elementary",
+      "leaid": "0602310",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270602310%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 20,
+      "output_file": "attendance_boundaries/districts/alum_rock_union_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "berryessa_union_elementary",
+      "leaid": "0604800",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270604800%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "empty",
+      "feature_count": 0,
+      "output_file": "attendance_boundaries/districts/berryessa_union_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "cambrian",
+      "leaid": "0607140",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270607140%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 1,
+      "output_file": "attendance_boundaries/districts/cambrian.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "campbell_union",
+      "leaid": "0607200",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270607200%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 1,
+      "output_file": "attendance_boundaries/districts/campbell_union.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "cupertino_union",
+      "leaid": "0610290",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270610290%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "empty",
+      "feature_count": 0,
+      "output_file": "attendance_boundaries/districts/cupertino_union.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "evergreen_elementary",
+      "leaid": "0613140",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270613140%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 18,
+      "output_file": "attendance_boundaries/districts/evergreen_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "franklin_mckinley_elementary",
+      "leaid": "0614370",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270614370%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 16,
+      "output_file": "attendance_boundaries/districts/franklin_mckinley_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "lakeside_joint",
+      "leaid": "0620700",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270620700%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 1,
+      "output_file": "attendance_boundaries/districts/lakeside_joint.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "los_altos_elementary",
+      "leaid": "0622650",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270622650%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 10,
+      "output_file": "attendance_boundaries/districts/los_altos_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "los_gatos_union_elementary",
+      "leaid": "0622830",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270622830%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 5,
+      "output_file": "attendance_boundaries/districts/los_gatos_union_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "luther_burbank",
+      "leaid": "0623130",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270623130%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 1,
+      "output_file": "attendance_boundaries/districts/luther_burbank.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "moreland",
+      "leaid": "0625770",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270625770%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "empty",
+      "feature_count": 0,
+      "output_file": "attendance_boundaries/districts/moreland.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "mount_pleasant_elementary",
+      "leaid": "0626400",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270626400%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 4,
+      "output_file": "attendance_boundaries/districts/mount_pleasant_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "mountain_view_whisman",
+      "leaid": "0626280",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270626280%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 13,
+      "output_file": "attendance_boundaries/districts/mountain_view_whisman.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "oak_grove_elementary",
+      "leaid": "0627810",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270627810%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 19,
+      "output_file": "attendance_boundaries/districts/oak_grove_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "orchard_elementary",
+      "leaid": "0628680",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270628680%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 1,
+      "output_file": "attendance_boundaries/districts/orchard_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "saratoga_union_elementary",
+      "leaid": "0635910",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270635910%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 4,
+      "output_file": "attendance_boundaries/districts/saratoga_union_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "sunnyvale",
+      "leaid": "0638460",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270638460%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 10,
+      "output_file": "attendance_boundaries/districts/sunnyvale.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "union_elementary",
+      "leaid": "0640320",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270640320%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 9,
+      "output_file": "attendance_boundaries/districts/union_elementary.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "campbell_union_high",
+      "leaid": "0607230",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270607230%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 5,
+      "output_file": "attendance_boundaries/districts/campbell_union_high.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "east_side_union_high",
+      "leaid": "0611820",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270611820%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 1,
+      "output_file": "attendance_boundaries/districts/east_side_union_high.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "fremont_union_high",
+      "leaid": "0614430",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270614430%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 5,
+      "output_file": "attendance_boundaries/districts/fremont_union_high.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "los_gatos_saratoga_union_high",
+      "leaid": "0622800",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270622800%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 2,
+      "output_file": "attendance_boundaries/districts/los_gatos_saratoga_union_high.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "mountain_view_los_altos_union_high",
+      "leaid": "0626310",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270626310%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 2,
+      "output_file": "attendance_boundaries/districts/mountain_view_los_altos_union_high.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "gilroy_unified",
+      "leaid": "0615180",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270615180%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 17,
+      "output_file": "attendance_boundaries/districts/gilroy_unified.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "milpitas_unified",
+      "leaid": "0624500",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270624500%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 12,
+      "output_file": "attendance_boundaries/districts/milpitas_unified.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "morgan_hill_unified",
+      "leaid": "0625830",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270625830%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 12,
+      "output_file": "attendance_boundaries/districts/morgan_hill_unified.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "palo_alto_unified",
+      "leaid": "0629610",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270629610%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 20,
+      "output_file": "attendance_boundaries/districts/palo_alto_unified.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "san_jose_unified",
+      "leaid": "0634590",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270634590%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "ok",
+      "feature_count": 40,
+      "output_file": "attendance_boundaries/districts/san_jose_unified.geojson",
+      "error": null
+    },
+    {
+      "district_slug": "santa_clara_unified",
+      "leaid": "0635430",
+      "url": "https://nces.ed.gov/opengis/rest/services/K12_School_Locations/SABS_1516/MapServer/0/query?where=leaid%3D%270635430%27&outFields=%2A&returnGeometry=true&f=geojson",
+      "status": "empty",
+      "feature_count": 0,
+      "output_file": "attendance_boundaries/districts/santa_clara_unified.geojson",
+      "error": null
+    }
+  ],
+  "merged_outputs": {
+    "merged_all": "attendance_boundaries/merged_all.geojson",
+    "merged_elementary": "attendance_boundaries/merged_elementary.geojson",
+    "merged_secondary": "attendance_boundaries/merged_secondary.geojson",
+    "merged_all_count": 249,
+    "merged_elementary_count": 168,
+    "merged_secondary_count": 79
+  }
+}
