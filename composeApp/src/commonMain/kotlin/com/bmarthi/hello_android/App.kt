@@ -16,7 +16,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 @Composable
-fun App(locationProvider: LocationProvider? = null) {
+fun App(
+    locationProvider: LocationProvider? = null,
+    isMonitoring: Boolean = false,
+    onToggleMonitoring: ((Boolean) -> Unit)? = null
+) {
     MaterialTheme {
         val scope = rememberCoroutineScope()
         val lookup = remember { SchoolLookup() }
@@ -143,6 +147,31 @@ fun App(locationProvider: LocationProvider? = null) {
                         color = MaterialTheme.colorScheme.error,
                         style = MaterialTheme.typography.bodyMedium
                     )
+                }
+
+                if (onToggleMonitoring != null) {
+                    HorizontalDivider()
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            "Monitor school zones in background",
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                        Switch(
+                            checked = isMonitoring,
+                            onCheckedChange = { onToggleMonitoring(it) }
+                        )
+                    }
+                    if (isMonitoring) {
+                        Text(
+                            "Monitoring active — you will be notified when entering a school zone",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
                 }
 
                 if (results != null) {

@@ -17,4 +17,3 @@ When the app is opened, there is an input field where the user can enter a latit
 ### Background
 
 In future there will be a background mode that monitors the device location and notifies when a new school district is entered.  This will not be implemented initially, but should be kept in mind as a future use case.
-
