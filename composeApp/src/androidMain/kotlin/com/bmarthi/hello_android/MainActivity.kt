@@ -18,6 +18,9 @@ class MainActivity : ComponentActivity() {
     private val locationProvider by lazy { AndroidLocationProvider(this) }
     private val permissionGranted = mutableStateOf(false)
     private val isMonitoring = mutableStateOf(false)
+    private val availableVoices = mutableStateOf<List<Pair<String, String>>>(emptyList())
+    private val selectedVoice = mutableStateOf<String?>(null)
+    private var previewTts: SchoolZoneTtsManager? = null
 
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -28,7 +31,6 @@ class MainActivity : ComponentActivity() {
     private val notificationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) {
-        // After notification permission result, proceed to request background location
         requestBackgroundLocationThenStart()
     }
 
@@ -45,6 +47,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+
+        val prefs = getSharedPreferences("school_zone", MODE_PRIVATE)
+        selectedVoice.value = prefs.getString("tts_voice", null)
+
+        SchoolZoneTtsManager.listEnglishVoices(this) { voices ->
+            availableVoices.value = voices
+        }
 
         val hasPermission = ContextCompat.checkSelfPermission(
             this, Manifest.permission.ACCESS_FINE_LOCATION
@@ -67,6 +76,28 @@ class MainActivity : ComponentActivity() {
                 isMonitoring = isMonitoring.value,
                 onToggleMonitoring = { enabled ->
                     if (enabled) startMonitoring() else stopMonitoring()
+                },
+                availableVoices = availableVoices.value,
+                selectedVoice = selectedVoice.value,
+                onVoiceSelected = { voiceName ->
+                    selectedVoice.value = voiceName
+                    prefs.edit().putString("tts_voice", voiceName).apply()
+                    // Recreate preview TTS with new voice
+                    previewTts?.shutdown()
+                    previewTts = SchoolZoneTtsManager(this@MainActivity, voiceName)
+                    // Restart service if running to pick up new voice
+                    if (isMonitoring.value) {
+                        stopMonitoring()
+                        startMonitoring()
+                    }
+                },
+                onTestVoice = {
+                    if (previewTts == null) {
+                        previewTts = SchoolZoneTtsManager(this@MainActivity, selectedVoice.value)
+                    }
+                    previewTts?.announceSchools(listOf(
+                        School(name = "Sample Elementary School", ncessch = "", leaid = "", level = "Elementary")
+                    ))
                 }
             )
         }
@@ -75,7 +106,6 @@ class MainActivity : ComponentActivity() {
     private fun startMonitoring() {
         isMonitoring.value = true
 
-        // Request notification permission first on API 33+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(
                     this, Manifest.permission.POST_NOTIFICATIONS
@@ -112,6 +142,11 @@ class MainActivity : ComponentActivity() {
     private fun stopMonitoring() {
         stopService(Intent(this, SchoolZoneMonitorService::class.java))
         isMonitoring.value = false
+    }
+
+    override fun onDestroy() {
+        previewTts?.shutdown()
+        super.onDestroy()
     }
 }
 

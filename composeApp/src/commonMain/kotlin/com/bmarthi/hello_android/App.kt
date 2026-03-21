@@ -15,11 +15,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App(
     locationProvider: LocationProvider? = null,
     isMonitoring: Boolean = false,
-    onToggleMonitoring: ((Boolean) -> Unit)? = null
+    onToggleMonitoring: ((Boolean) -> Unit)? = null,
+    availableVoices: List<Pair<String, String>> = emptyList(),
+    selectedVoice: String? = null,
+    onVoiceSelected: ((String) -> Unit)? = null,
+    onTestVoice: (() -> Unit)? = null
 ) {
     MaterialTheme {
         val scope = rememberCoroutineScope()
@@ -171,6 +176,50 @@ fun App(
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
+                    }
+
+                    if (availableVoices.isNotEmpty() && onVoiceSelected != null) {
+                        var voiceDropdownExpanded by remember { mutableStateOf(false) }
+                        val selectedLabel = availableVoices
+                            .find { it.first == selectedVoice }?.second ?: "Default"
+
+                        ExposedDropdownMenuBox(
+                            expanded = voiceDropdownExpanded,
+                            onExpandedChange = { voiceDropdownExpanded = it }
+                        ) {
+                            OutlinedTextField(
+                                value = selectedLabel,
+                                onValueChange = {},
+                                readOnly = true,
+                                label = { Text("TTS Voice") },
+                                trailingIcon = {
+                                    ExposedDropdownMenuDefaults.TrailingIcon(expanded = voiceDropdownExpanded)
+                                },
+                                modifier = Modifier
+                                    .menuAnchor()
+                                    .fillMaxWidth()
+                            )
+                            ExposedDropdownMenu(
+                                expanded = voiceDropdownExpanded,
+                                onDismissRequest = { voiceDropdownExpanded = false }
+                            ) {
+                                availableVoices.forEach { (id, label) ->
+                                    DropdownMenuItem(
+                                        text = { Text(label) },
+                                        onClick = {
+                                            onVoiceSelected(id)
+                                            voiceDropdownExpanded = false
+                                        }
+                                    )
+                                }
+                            }
+                        }
+
+                        if (onTestVoice != null) {
+                            OutlinedButton(onClick = onTestVoice) {
+                                Text("Test Voice")
+                            }
+                        }
                     }
                 }
 

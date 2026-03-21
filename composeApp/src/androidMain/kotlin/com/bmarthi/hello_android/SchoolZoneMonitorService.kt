@@ -36,7 +36,9 @@ class SchoolZoneMonitorService : Service(), LocationListener {
         super.onCreate()
 
         notificationHelper = SchoolZoneNotificationHelper(this)
-        ttsManager = SchoolZoneTtsManager(this)
+        val prefs = getSharedPreferences("school_zone", MODE_PRIVATE)
+        val voiceName = prefs.getString("tts_voice", null)
+        ttsManager = SchoolZoneTtsManager(this, voiceName)
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
 
         notificationHelper.createChannels()
