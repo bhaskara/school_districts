@@ -1,6 +1,7 @@
 package com.bmarthi.hello_android
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -16,8 +17,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import java.util.concurrent.atomic.AtomicBoolean
+import kotlin.coroutines.resume
 
 class SchoolZoneMonitorService : Service(), LocationListener {
 
@@ -84,12 +87,42 @@ class SchoolZoneMonitorService : Service(), LocationListener {
         return START_STICKY
     }
 
+    @SuppressLint("MissingPermission")
+    private suspend fun getGpsFix(): Location? {
+        // Try last known GPS location first (often fresh enough)
+        val lastGps = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+        if (lastGps != null && lastGps.elapsedRealtimeNanos >
+            android.os.SystemClock.elapsedRealtimeNanos() - 3_000_000_000L) {
+            // GPS fix less than 3 seconds old
+            return lastGps
+        }
+
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) return null
+
+        return suspendCancellableCoroutine { cont ->
+            val listener = object : LocationListener {
+                override fun onLocationChanged(location: Location) {
+                    locationManager.removeUpdates(this)
+                    cont.resume(location)
+                }
+                @Deprecated("Deprecated in API")
+                override fun onStatusChanged(provider: String?, status: Int, extras: android.os.Bundle?) {}
+                override fun onProviderEnabled(provider: String) {}
+                override fun onProviderDisabled(provider: String) {}
+            }
+            locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, listener, mainLooper)
+            cont.invokeOnCancellation { locationManager.removeUpdates(listener) }
+        }
+    }
+
     override fun onLocationChanged(location: Location) {
         if (!dataLoaded.get()) return
 
         scope.launch {
+            // Network provider triggered us — now get a precise GPS fix
+            val preciseLocation = getGpsFix() ?: location
             val schools = withContext(Dispatchers.Default) {
-                lookup.findSchools(location.latitude, location.longitude)
+                lookup.findSchools(preciseLocation.latitude, preciseLocation.longitude)
             }
             val currentIds = schools.map { it.ncessch }.toSet()
             val newSchools = schools.filter { it.ncessch !in previousIds }
